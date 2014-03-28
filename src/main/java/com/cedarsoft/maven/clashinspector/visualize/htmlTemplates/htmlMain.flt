@@ -1,0 +1,44 @@
+<html>
+<head>
+  <title>HTML Analysis</title>
+</head>
+<body>
+<table border="1">
+  <ul>
+    <li>Analyzed Dependeny</li>
+    <li>
+      ${(clashCollectResultWrapper.root.getGroupId())!}:${(clashCollectResultWrapper.root.getArtifactId())!}:${(clashCollectResultWrapper.root.getVersion())!}
+    </li>
+  </ul>
+  <ul
+    <li>clashSeverity</li>
+    <li>${(clashSeverity)!}</li>
+  </ul>
+  <ul>
+    <li>Hat ein Kind?</li>
+    <ul>
+    <#if clashCollectResultWrapper.root.children??>
+        <li>Ja :-)</li>
+    <#else>
+        <li>Nein :-(</li>
+    </#if>
+    </ul>
+  </ul>
+</table>
+<br/>
+<table border="1">
+
+<#list clashCollectResultWrapper.root.children as child>
+  <ul>
+    <li>${child}</li>
+       <#list child.getChildren() as childChild>
+          <ul>
+             <li>${childChild}</li>
+          </ul>
+       </#list>
+  </ul>
+</#list>
+
+</table>
+</body>
+</html>
