@@ -1,18 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
 
 
   <modelVersion>4.0.0</modelVersion>
   <groupId>com.clashinspector</groupId>
   <artifactId>clashinspector-maven-plugin</artifactId>
-  <version>0.3-SNAPSHOT</version>
+  <version>1.1-SNAPSHOT</version>
   <packaging>maven-plugin</packaging>
   <name>ClashInspector</name>
   <description>Jahresprojekt 2013/2014 Hochschule Reutlingen</description>
   <inceptionYear>2014</inceptionYear>
+  <url>http://clashinspector.com</url>
 
   <organization>
     <name>Hochschule Reutlingen</name>
@@ -56,6 +56,12 @@
     </developer>
 
   </developers>
+
+  <scm>
+    <connection>scm:git:git://github.com/cedarsoft/clashinspector.com.git</connection>
+    <developerConnection>scm:git:git@github.com:cedarsoft/clashinspector.com.git</developerConnection>
+    <url>https://github.com/cedarsoft/clashinspector.com</url>
+  </scm>
 
   <issueManagement>
     <system>GitHub</system>
@@ -115,12 +121,11 @@
       <version>${aetherVersion}</version>
     </dependency>
 
-         <dependency>
-           <groupId>org.codehaus.jackson</groupId>
-           <artifactId>jackson-mapper-asl</artifactId>
-           <version>1.9.13</version>
-         </dependency>
-
+    <dependency>
+      <groupId>org.codehaus.jackson</groupId>
+      <artifactId>jackson-mapper-asl</artifactId>
+      <version>1.9.13</version>
+    </dependency>
 
 
     <dependency>
@@ -159,15 +164,11 @@
     </dependency>
 
 
-
-
-
   </dependencies>
 
 
   <build>
     <plugins>
-
 
 
       <plugin>
@@ -193,63 +194,88 @@
         </executions>
       </plugin>
 
-      <!--<plugin>
-        <groupId>com.clashinspector</groupId>
-        <artifactId>clashinspector-maven-plugin</artifactId>
-        <version>0.3-SNAPSHOT</version>
+      <!--<plugin>-->
+      <!--<groupId>com.clashinspector</groupId>-->
+      <!--<artifactId>clashinspector-maven-plugin</artifactId>-->
+      <!--<version>0.3-SNAPSHOT</version>-->
+      <!--<configuration>-->
+
+
+      <!--<whiteList>-->
+      <!--<whiteListDependency>-->
+      <!--<groupId>org.codehaus.plexus</groupId>-->
+      <!--<artifactId>plexus-utils</artifactId>-->
+      <!--<version>3.0.15</version>-->
+      <!--</whiteListDependency>-->
+
+      <!--<whiteListDependency>-->
+      <!--<groupId>org.apache.maven</groupId>-->
+      <!--<artifactId>maven-artifact</artifactId>-->
+      <!--<version>3.1.1</version>-->
+      <!--</whiteListDependency>-->
+
+      <!--<whiteListDependency>-->
+      <!--<groupId>com.google.guava</groupId>-->
+      <!--<artifactId>guava</artifactId>-->
+      <!--<version>15.0</version>-->
+      <!--</whiteListDependency>-->
+
+      <!--<whiteListDependency>-->
+      <!--<groupId>org.codehaus.plexus</groupId>-->
+      <!--<artifactId>plexus-classworlds</artifactId>-->
+      <!--<version>2.5.1</version>-->
+      <!--</whiteListDependency>-->
+
+      <!--<whiteListDependency>-->
+      <!--<groupId>org.eclipse.aether</groupId>-->
+      <!--<artifactId>aether-api</artifactId>-->
+      <!--<version>0.9.0.M3</version>-->
+      <!--</whiteListDependency>-->
+
+      <!--<whiteListDependency>-->
+      <!--<groupId>org.eclipse.aether</groupId>-->
+      <!--<artifactId>aether-util</artifactId>-->
+      <!--<version>0.9.0.M3</version>-->
+      <!--</whiteListDependency>-->
+
+
+      <!--</whiteList>-->
+
+
+      <!--</configuration>-->
+      <!--<executions>-->
+      <!--<execution>-->
+      <!--<goals>-->
+      <!--<goal>listPhase</goal>-->
+      <!--</goals>-->
+
+      <!--</execution>-->
+      <!--</executions>-->
+
+      <!--</plugin>-->
+
+      <plugin>
+        <groupId>org.sonatype.plugins</groupId>
+        <artifactId>nexus-staging-maven-plugin</artifactId>
+        <version>1.5.1</version>
+        <extensions>true</extensions>
         <configuration>
-
-
-
-          <whiteList>
-
-
-            <whiteListDependency>
-              <groupId>org.apache.maven</groupId>
-              <artifactId>maven-artifact</artifactId>
-              <version>3.1.1</version>
-            </whiteListDependency>
-
-          <whiteListDependency>
-            <groupId>com.google.guava</groupId>
-            <artifactId>guava</artifactId>
-            <version>15.0</version>
-          </whiteListDependency>
-
-            <whiteListDependency>
-              <groupId>org.codehaus.plexus</groupId>
-              <artifactId>plexus-classworlds</artifactId>
-              <version>2.5.1</version>
-            </whiteListDependency>
-
-            <whiteListDependency>
-              <groupId>org.eclipse.aether</groupId>
-              <artifactId>aether-api</artifactId>
-              <version>0.9.0.M3</version>
-            </whiteListDependency>
-
-            <whiteListDependency>
-              <groupId>org.eclipse.aether</groupId>
-              <artifactId>aether-util</artifactId>
-              <version>0.9.0.M3</version>
-            </whiteListDependency>
-
-
-
-        </whiteList>
-
-
+          <nexusUrl>https://oss.sonatype.org</nexusUrl>
+          <serverId>sonatype-nexus-staging</serverId>
         </configuration>
-        <executions>
-          <execution>
-            <goals>
-              <goal>listPhase</goal>
-            </goals>
+      </plugin>
 
-          </execution>
-        </executions>
-
-      </plugin-->
+      <plugin>
+        <groupId>com.atlassian.maven.plugins</groupId>
+        <artifactId>maven-jgitflow-plugin</artifactId>
+        <version>1.0-alpha24</version>
+        <configuration>
+          <autoVersionSubmodules>true</autoVersionSubmodules>
+          <enableFeatureVersions>true</enableFeatureVersions>
+          <enableSshAgent>true</enableSshAgent>
+          <localOnly>true</localOnly>
+        </configuration>
+      </plugin>
 
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
@@ -261,11 +287,18 @@
       </plugin>
 
     </plugins>
+
+    <extensions>
+      <extension>
+        <groupId>org.apache.maven.wagon</groupId>
+        <artifactId>wagon-ssh-external</artifactId>
+        <version>2.2</version>
+      </extension>
+    </extensions>
+
   </build>
   <reporting>
     <plugins>
-
-
 
 
       <plugin>
@@ -274,11 +307,11 @@
         <version>2.7</version>
         <reportSets>
           <reportSet>
-          <reports>
-            <report>dependencies</report>
-            <report>project-team</report>
-            <report>license</report>
-          </reports>
+            <reports>
+              <report>dependencies</report>
+              <report>project-team</report>
+              <report>license</report>
+            </reports>
           </reportSet>
         </reportSets>
       </plugin>
@@ -364,4 +397,35 @@
       <url>scpexe://clashinspector.com/var/www/clashinspector.com</url>
     </site>
   </distributionManagement>
+
+  <profiles>
+    <profile>
+      <id>release-sign-artifacts</id>
+      <activation>
+        <property>
+          <name>performRelease</name>
+          <value>true</value>
+        </property>
+      </activation>
+      <build>
+        <plugins>
+          <plugin>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-gpg-plugin</artifactId>
+            <executions>
+              <execution>
+                <id>sign-artifacts</id>
+                <phase>verify</phase>
+                <goals>
+                  <goal>sign</goal>
+                </goals>
+              </execution>
+            </executions>
+          </plugin>
+        </plugins>
+      </build>
+    </profile>
+
+  </profiles>
+
 </project>
