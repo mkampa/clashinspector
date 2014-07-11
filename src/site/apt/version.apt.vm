@@ -7,6 +7,10 @@
 
 Version Preview & History
 
+  Release 1.0:
+
+  - <<{{{./html-mojo.html}${project.artifactId}:html}} >> multiple dependencies can be analyzed at the same time
+
   Release 0.9:
 
   - <<{{{./html-mojo.html}${project.artifactId}:html}} >> goal added
